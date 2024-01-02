@@ -17,6 +17,9 @@ body {
   overflow-x: hidden;
   font-size: 15px;
 }
+.bg-bleu4{
+  background:#3DB2FF;
+}
 
 p {
   margin: 0;
@@ -1421,6 +1424,17 @@ ol {
   color: #fff; 
 }
 
+.blublub-background{
+  .header-background {
+    background-image: url('../images/bg/blublu.png'); 
+    background-size :cover ; 
+    background-position: center center;
+    background-repeat: no-repeat; 
+    padding: 50px 0; 
+    color: #fff; 
+  }
+  
+}
 .features-background {
   background-image: url('../images/bg/texture-papier-blanc\ 1.png '); 
   background-size: cover;
