@@ -1,0 +1,235 @@
+.background-left{
+  
+  border-radius: 0px;	
+  background: url('../assets/images/bg/bg_blue.png') center/cover;
+}
+.background-right-signin{
+  border-radius: 0px;	
+  background: url('../assets/images/bg/pp.png') center/cover;
+}
+.background-right{
+  background-color: #ffedda ;
+  /* border-radius: 0px;	
+  background: url('../assets/images/bg/bg_pink.png') center/cover;
+  width: 100vw; 
+  height: 100vh; */
+}
+.seconnecter{
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid black; /* Bordure noire */
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px black; 
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-shadow: 5px 5px 5px #000; 
+  border: 3px solid #000;
+  border-radius: 1px;
+}
+
+.btn {
+  font-weight: 500;
+  transition: .5s;
+}
+
+.btn.btn-primary {
+  background-color: #3DB2FF;
+  color: #FFFFFF;
+}
+
+.bienvenu{
+color: #FFF;
+text-align: center;
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.connecter{
+text-align: center;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+background: url('assets/images/bg/bg_blue.png') center/cover;
+background-clip: text;
+-webkit-background-clip: text;
+
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.creer{
+	border-radius: 10px;
+background: #FF2442;
+}
+.logo1{
+width: 294px;
+height: 78px;
+}
+.logo2{
+width: 300px;
+height: 300px;}
+
+.profil{
+	color: #000;
+
+text-align: left;
+font-family: Inter;
+font-size: 64px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.abonne{
+  display: flex;
+  width: 160px;
+  height: 55px;
+  padding: 15px 8px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+background: linear-gradient(97deg, #3DB2FF -3.25%, #FF2442 100.02%);
+}
+
+.bg-bleu{
+  background: linear-gradient(180deg, #DEEFFB 0%, rgba(217, 217, 217, 0.00) 100%);
+}
+.bg-vert{
+  background: #BBD43A;
+}
+.bg-bleu2{
+  background: #A5DCDC;
+}
+.bg-bleu3{
+  background:#ACD6CC;
+}
+.bg-bleu4{
+  background:#3DB2FF;
+}
+
+
+.kid-red{color: #FF2442;
+
+  text-align: center;
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;}
+
+  .kid-red1{color: #FF2442;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;}
+
+    .btn-link {
+      font-weight: 400;
+      color: black;
+      text-decoration: none;}
+    #demo{
+        background:#D1EDFF;;
+        max-width: 900px;
+        margin: auto;
+    }
+    .carousel-caption {
+        position: initial;
+        z-index: 10;
+        padding: 5rem 8rem;
+        color: black;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        
+        line-height: normal;
+    }
+    @media(max-width:767px){
+        .carousel-caption {
+            position: initial;
+            z-index: 10;
+            padding: 3rem 2rem;
+            color: black;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            
+            line-height: normal;
+        }
+    }
+    .carousel-caption img{
+        width: 6rem;
+        margin-top: 2rem;
+    }
+    @media(max-width:767px){
+        .carousel-caption img{
+            width: 4rem;
+           
+            margin-top: 1rem;
+        }
+    }
+    #image-caption{
+        font-style: normal;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+    @media(max-width:767px){
+        #image-caption{
+            font-style: normal;
+            font-size: 0.6rem;
+            margin-top: 0.5rem;
+        }
+    }
+    
+    @media(max-width:767px){
+        i{
+            padding: 0.8rem;
+        }
+    }
+    .carousel-control-prev{
+        justify-content: flex-start;
+    }
+    
+    .carousel-control-next {
+        justify-content: flex-end;
+    }
+    .carousel-control-prev,.carousel-control-next{
+        transition: none;
+        opacity: unset;
+    }
+
+    .pink{
+      background-color: #FF2442;
+      width: 200px;
+      text-align: center !important;
+      position: relative;
+    }
+
+    .redblue{
+      background: linear-gradient(95deg, #F3233F 0%, #3DB2FF 100%);    }
+
+      body{
+        background: #D1EDFF;
+      }
+
+      .bg-bleux{
+        background: #D1EDFF;
+      }
