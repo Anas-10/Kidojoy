@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<!DOCTYPE html>
+<html>
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>KidoJoy Manager</title>
+	</head>
+<body class="background-right">
+<div class="row" style="height: 100%;">
+    <div class="col-xs-12 col-sm-8 col-md-8 mt-5">
+		<form id ="loginForm" role="form">
+			<div class="container">
+				<div class="text-center "><img src="assets/images/logo/logo.png" class="logo1"></div>
+			<h1  class="text-center p-3"><b>KidoJoy Manager</b></h1>
+			<div class="row">
+			</div>
+			<div class="form-group">
+				<label><b>Email</b></label>
+                <input type="text" name="Email" id="Email" class="form-control input-lg" >
+			</div>
+			<div class="form-group">
+                <label><b>Mot de passe</b></label>
+				<input type="password" name="Mot_de_passe" id="Mot_de_passe" class="form-control input-lg">
+			</div>
+				<div class="col-xs-12 col-md-12"><input style="background-color: #ec2e57;" type="submit" value="Se connecter" class="btn btn-primary btn-block btn-lg "></div>
+				<div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+
+			</div>
+		</form>
+	
+</div>
+
+<!-- ... -->
+<!-- Ajouter ce script à la fin de votre fichier HTML -->
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Empêcher l'envoi par défaut du formulaire
+  
+      // Récupérer les valeurs du formulaire
+      const email = document.getElementById('Email').value;
+      const password = document.getElementById('Mot_de_passe').value;
+  
+      // Vérifier les identifiants
+      if (email === 'admin' && password === 'admin') {
+        // Rediriger vers posts.html
+        window.location.href = 'posts.html';
+      } else {
+        // Afficher un message d'erreur
+        document.getElementById('errorMessage').textContent = 'Identifiants incorrects. Veuillez réessayer.';
+      }
+    });
+  </script>
+  
+
+</body>
+</html>

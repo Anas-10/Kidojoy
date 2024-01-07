@@ -1,0 +1,99 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des Posts</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Liste des Posts</h1>
+  <table id="postTable">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Post</th>
+        <th>Publié par</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Charger les posts lors du chargement de la page
+    window.onload = function() {
+      fetchPosts();
+    };
+
+    // Fonction pour récupérer et afficher les posts
+    function fetchPosts() {
+      fetch('http://localhost:3000/post')  // Assurez-vous d'ajuster l'URL en fonction de votre serveur
+        .then(response => response.json())
+        .then(posts => {
+          // Appeler la fonction pour afficher les posts dans le tableau
+          displayPosts(posts);
+        })
+        .catch(error => {
+          console.error('Erreur lors de la récupération des posts:', error);
+        });
+    }
+
+ async function getUserName(userId) {
+  try {
+    const response = await fetch(`http://localhost:3000/user/${userId}`);
+    const userData = await response.json();
+    return `${userData.nom} ${userData.prenom}`;
+  } catch (error) {
+    console.error('Erreur lors de la récupération du nom d\'utilisateur:', error);
+    return 'Utilisateur inconnu';
+  }
+}
+
+async function displayPosts(posts) {
+  const postTable = document.getElementById('postTable');
+  const tbody = postTable.querySelector('tbody');
+
+  // Effacer le contenu existant
+  tbody.innerHTML = '';
+
+  // Ajouter chaque post au tableau
+  for (const post of posts) {
+    const row = tbody.insertRow();
+
+    // Ajouter les données dans chaque cellule
+    const titleCell = row.insertCell(0);
+    titleCell.textContent = post.title;
+
+    const postCell = row.insertCell(1);
+    const photoLink = document.createElement('a');
+    photoLink.href = `${post.photo}`;
+    photoLink.textContent = 'Voir la post';
+    photoLink.target = '_blank';
+    postCell.appendChild(photoLink);
+
+    const publishedByCell = row.insertCell(2);
+    const userName = await getUserName(post.user_id);
+    publishedByCell.textContent = `Utilisateur ${userName}`;
+  }
+}
+//
+  </script>
+</body>
+</html>
