@@ -90,7 +90,7 @@ async function displayPosts(posts) {
 
     const publishedByCell = row.insertCell(2);
     const userName = await getUserName(post.user_id);
-    publishedByCell.textContent = `Utilisateur ${userName}`;
+    publishedByCell.textContent = ` ${userName}`;
   }
 }
 //
