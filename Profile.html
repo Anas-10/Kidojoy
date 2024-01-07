@@ -1,0 +1,142 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<!DOCTYPE html>
+<html>
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Mon profile</title>
+	</head>
+<body class="background-right">
+<div class="row" style="height: 100%;">
+    <div class="col-xs-12 col-sm-8 col-md-8 mt-5">
+		<form id="profileForm">
+
+			<div class="container">
+				<div class="text-left"><h1 style="width: 500px;">Profile</h1></div>
+
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="text" name="Nom" id="Nom" class="form-control input-lg" placeholder="Nom">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="prenom" id="prenom" class="form-control input-lg" placeholder="prénom" >
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="text" name="Email" id="Email" class="form-control input-lg" placeholder="Email">
+			</div>
+			<div class="form-group">
+				<input type="password" name="Mot_de_passe" id="Mot_de_passe" class="form-control input-lg" placeholder="Mot de passe">
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="text" name="date_de_naissance" id="date_de_naissance" class="form-control input-lg" placeholder="date de naissance">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="Sexe" id="Sexe" class="form-control input-lg" placeholder="Sexe" >
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12" ><input style="color:white" type="submit" value="Modifier" class="btn btn-primary btn-block btn-lg creer"></div>
+				</div>
+
+				<div class="row">
+				
+			</div>
+			</div>
+		</form>
+	
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 ">
+		<div class="vertical-center">
+			<img src="assets/images/Ellipse 1437.png" alt="Logo">
+
+		</div>
+	</div>
+</div>
+
+  
+
+</body>
+<!-- ... (your HTML code) ... -->
+
+<!-- ... (your HTML code) ... -->
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+	  // Retrieve userId from localStorage
+	  const userId = parseInt(localStorage.getItem('userId'), 10);
+  
+	  // Fetch all user data from the server using the userId
+	  fetch(`http://localhost:3000/user/${userId}`)
+		.then(response => response.json())
+		.then(userData => {
+		  // Set user data to form fields
+		  document.getElementById('Nom').value = userData.nom || '';
+		  document.getElementById('prenom').value = userData.prenom || '';
+		  document.getElementById('Email').value = userData.email || '';
+		  // For security reasons, do not pre-fill password field
+		  document.getElementById('Mot_de_passe').value = userData.password;
+		  document.getElementById('date_de_naissance').value = userData.date_naissance || '';
+		  document.getElementById('Sexe').value = userData.sexe || '';
+		})
+		.catch(error => console.error('Error fetching user data:', error));
+  
+	  // Form submission
+	  document.getElementById('profileForm').addEventListener('submit', function (event) {
+		event.preventDefault();
+  
+			const updatedNom = document.getElementById('Nom').value;
+			const updatedPrenom = document.getElementById('prenom').value;
+			const updatedEmail = document.getElementById('Email').value;
+			const updatedMotDePasse = document.getElementById('Mot_de_passe').value;
+			const updatedDateNaissance = document.getElementById('date_de_naissance').value;
+			const updatedSexe = document.getElementById('Sexe').value;
+		
+			console.log(userId)
+			console.log(updatedPrenom)
+			console.log(updatedNom)
+			console.log(updatedMotDePasse)
+			console.log(updatedSexe)
+			console.log(updatedEmail)
+
+		fetch(`http://localhost:3000/user/update`, {
+		  method: 'PUT',
+		  headers: {
+			'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
+			userId: userId,
+			nom: updatedNom,
+			prenom: updatedPrenom,
+			email: updatedEmail,
+			password: updatedMotDePasse,
+			date_naissance: updatedDateNaissance,
+			sexe: updatedSexe,
+		  }),
+		})
+		.then(response => response.json())
+		.then(updatedUserData => {
+		  console.log('User data updated successfully:', updatedUserData);
+		  // Redirect to profile.html or perform other actions as needed
+		  window.location.href = 'Profile.html';
+		})
+		.catch(error => console.error('Error updating user data:', error));
+	  });
+	});
+  </script>
+  
+
+  
+</html>
