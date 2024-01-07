@@ -18,7 +18,8 @@
 		</div>
 	</div>
     <div class="background-right col-xs-12 col-sm-8 col-md-8 mt-5 ">
-		<form role="form">
+			<form id="registrationForm">
+
 			<div class="container">
 				<div class="text-center p-2"><img src="assets/images/logo/logo.png" class="logo1"></div>
 			<h2 class="text-center p-3">Créer votre compte</h2>
@@ -66,5 +67,36 @@
 
 	</div>
 </div>
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = {
+        email: document.getElementById('Email').value,
+        password: document.getElementById('Mot_de_passe').value,
+        nom: document.getElementById('Nom').value,
+        prenom: document.getElementById('prenom').value,
+        date_naissance: document.getElementById('date_de_naissance').value,
+        sexe: document.getElementById('Sexe').value,
+      };
+
+      fetch('http://localhost:3000/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Registration successful:', data);
+        // You can redirect the user or show a success message
+      })
+      .catch(error => {
+        console.error('Registration failed:', error);
+        // Handle error, show error message, etc.
+      });
+    });
+  </script>
 </body>
 </html>
