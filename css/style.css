@@ -1,19 +1,13 @@
 .background-left{
   
   border-radius: 0px;	
-  background: url('../assets/images/bg/bg_blue.png') center/cover;
+  /* background: url('../assets/images/bg/bg_blue.png') center/cover; */
 }
 .background-right-signin{
   border-radius: 0px;	
   background: url('../assets/images/bg/pp.png') center/cover;
 }
-.background-right{
-  background-color: #ffedda ;
-  /* border-radius: 0px;	
-  background: url('../assets/images/bg/bg_pink.png') center/cover;
-  width: 100vw; 
-  height: 100vh; */
-}
+
 .seconnecter{
   padding: 10px;
   background-color: #4CAF50;

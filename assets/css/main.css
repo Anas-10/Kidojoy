@@ -1423,6 +1423,13 @@ ol {
   padding: 100px 0; 
   color: #fff; 
 }
+.background-singup {
+  background-image: url('../images/bg/singupbg.png'); 
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat; 
+  padding: 100px 0; 
+}
 
 #culture {
   display: flex;
