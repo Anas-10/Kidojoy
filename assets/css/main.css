@@ -1424,6 +1424,15 @@ ol {
   color: #fff; 
 }
 
+#culture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  max-width: 100%; /* Assure que l'image ne dépasse pas la largeur de son conteneur parent */
+}
 .blublub-background{
   .header-background {
     background-image: url('../images/bg/blublu.png'); 
